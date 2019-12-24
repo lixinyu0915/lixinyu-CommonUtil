@@ -5,15 +5,15 @@ import java.util.Random;
 /**
  * 
 * @ClassName: RandomUtil 
-* @Description: Ëæ»ú¹¤¾ßÀà 
+* @Description: éšæœºå·¥å…·ç±»
 * @author A18ccms a18ccms_gmail_com 
-* @date 2019Äê12ÔÂ8ÈÕ ÏÂÎç7:39:36 
+* @date 2019å¹´12æœˆ24æ—¥ ä¸Šåˆ8:25:10 
 *
  */
 public class RandomUtil {
 	/**
 	 * @Title: random   
-	 * @Description: »ñµÃ×îĞ¡ÊıºÍ×î´óÊıÖ®¼äµÄËæ»úÊı   
+	 * @Description: è·å¾—æœ€å°æ•°å’Œæœ€å¤§æ•°ä¹‹é—´çš„éšæœºæ•°   
 	 * @param: @param min
 	 * @param: @param max
 	 * @param: @return      
@@ -26,7 +26,7 @@ public class RandomUtil {
 	}
 	/**
 	 * @Title: random   
-	 * @Description: »ñµÃ×îĞ¡ÊıºÍ×î´óÊıÖ®¼äµÄ¶à¸öËæ»úÊı
+	 * @Description: è·å¾—æœ€å°æ•°å’Œæœ€å¤§æ•°ä¹‹é—´çš„å¤šä¸ªéšæœºæ•°
 	 * @param: @param min
 	 * @param: @param max
 	 * @param: @param num
