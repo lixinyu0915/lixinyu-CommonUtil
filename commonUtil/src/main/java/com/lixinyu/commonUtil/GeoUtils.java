@@ -1,14 +1,8 @@
 package com.lixinyu.commonUtil;
-/**
- * 
-* @ClassName: GeoUtils 
-* @Description: 经纬度计算工具类
-* @author A18ccms a18ccms_gmail_com 
-* @date 2019年12月24日 上午8:20:15 
-*
- */
+
+  
 public class GeoUtils {
-    /**
+	 /**
      * 计算两经纬度点之间的距离（单位：米）
      * @param lng1  经度
      * @param lat1  纬度

@@ -1,103 +1,63 @@
 package com.lixinyu.commonUtil;
 
+
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-/**
- * 
-* @ClassName: StreamUtil 
-* @Description: 流工具类
-* @author A18ccms a18ccms_gmail_com 
-* @date 2019年12月24日 上午8:26:28 
-*
- */
+
 public class StreamUtil {
-	/**
-	 * 关闭流的方法
-	 * @Title: closeAll   
-	 * @Description: 数组参数，可以批量删除多个打开的流   
-	 * @param: @param autoCloseables      
-	 * @return: void      
-	 * @throws
-	 */
-	public static void closeAll(AutoCloseable... autoCloseables ) {
+	public static void closeAll(AutoCloseable...autoCloseables) {
 		if(autoCloseables!=null) {
-			for(AutoCloseable autoCloseable:autoCloseables) {
+			for (AutoCloseable autoCloseable : autoCloseables) {
 				try {
 					autoCloseable.close();
 				} catch (Exception e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		}
 	}
-	
-	/**
-	 * @Title: readTextFile   
-	 * @Description: 以流的方式，读取文本文件内容   
-	 * @param: @param file
-	 * @param: @return      
-	 * @return: String      
-	 * @throws
-	 */
-	public static String readTextFile(File file) {
-		InputStream inputStream = null;
+	public static String readFile(File file) {
+		InputStream inputstram =null;
+		String str="";
 		try {
-			inputStream = new FileInputStream(file);
-			byte[] b = new byte[1024];
-			String str = null;
-			while (inputStream.read(b)!=-1) {
-				str += new String(b);
+			inputstram = new FileInputStream(file);
+			byte[] b=new byte[1024];
+			while(inputstram.read(b)!=-1) {
+				str+=new String(b);
 			}
-			return str;
-		} catch (IOException e) {
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return null;
 		}finally {
-			closeAll(inputStream);
+			closeAll(inputstram);
 		}
+		return str;
 	}
-	/**
-	 * @Title: getFileContent   
-	 * @Description: 根据文件全名读取文件内容   
-	 * @param: @param fileFullName
-	 * @param: @return      
-	 * @return: String      
-	 * @throws
-	 */
-	public static String readTextFile(String fileFullName) {
-		return readTextFile(new File(fileFullName));
-	}
-	
-	public static void writeTextFile(String content,File file,boolean append) {
-		BufferedWriter writer = null;
+	public static void writerTestFile(String content,File file) {
+		String parent = file.getParent();
+		File parentFile = new File(parent);
+		if(!parentFile.exists()) {
+			parentFile.mkdirs();
+		}
+		BufferedWriter writer=null;
 		try {
-			//判断写文件的文件夹是否存在
-			String parent = file.getParent();
-			File parentFile = new File(parent);
-			if(!parentFile.exists()) {
-				parentFile.mkdirs();
-			}
-			//写文件
-			writer = new BufferedWriter(new FileWriter(file,append));
-			writer.write(content);
+			writer = new BufferedWriter(new FileWriter(file,true));
+			writer.write(content+"\n");
 			writer.flush();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			closeAll(writer);
 		}
 	}
-	
-	public static void writeTextFile(String content,String fileFullName,boolean append) {
-		writeTextFile(content,new File(fileFullName), append);
-	}
-
 	public static void main(String[] args) {
-		String readTextFile = readTextFile("C:\\Users\\Administrator\\Desktop\\pom.xml");
-		writeTextFile(readTextFile, "C:\\Users\\Administrator\\Desktop\\aa\\aa.xml",false);
+		writerTestFile("我是你爸爸", new  File("D:\\游戏\\aaa.txt"));
 	}
 }

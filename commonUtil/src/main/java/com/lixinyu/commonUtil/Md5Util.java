@@ -1,14 +1,9 @@
 package com.lixinyu.commonUtil;
 
+
 import java.security.MessageDigest;
-/**
- * 
-* @ClassName: Md5Util 
-* @Description: 采用Md5加密解密 
-* @author A18ccms a18ccms_gmail_com 
-* @date 2019年12月24日 上午8:22:26 
-*
- */
+
+
 public class Md5Util {
     /**
      * @Title: string2MD5   
